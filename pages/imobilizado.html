@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lideratu</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" integrity="sha512-F5QTlBqZlvuBEs9LQPqc1iZv2UMxcVXezbHzomzS6Df4MZMClge/8+gXrKw2fl5ysdk4rWjR0vKS7NNkfymaBQ==" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+
+    <script src="./../assets/js/nprocess.js"></script>
+    <link rel="stylesheet" href="./../assets/css/nprogess.css">
+
+
+    <link rel="stylesheet" href="./../assets/css/style.css">
+    <script src="./../assets/js/app.js" defer></script>
+
+    <link rel="shortcut icon" href="./../assets/img/logo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <header class="header">
+        <button class="btn btn-menu" onclick="menuTrigger()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="menu">
+            <div class="menu__bg"></div>
+            <a href="" class="menu__link">Home</a>
+            <a href="./dashboard.html" class="menu__link">Dashboard</a>
+            <a href="" class="menu__link">Clientes</a>
+            <a href="./imobilizado.html" class="menu__link">Imobilizado</a>
+            <a href="" class="menu__link">Cadastros Sistema</a>
+            <a href="" class="menu__link">Usuários</a>
+            <a href="" class="menu__link">Unidades</a>
+        </nav>
+    </header>
+    <main class="main">
+        <aside class="asideForm">
+            <div class="asideForm__inner">
+                <form action="" class="asideForm__form">
+                    <div class="asideForm__title col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <h3>IMOBILIZADO</h3>
+                        <button type="button" class="btn btn-closeAside" onclick="closeForm(this)">
+                            <span>Fechar formulário</span>
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="asideForm__form-tabs">
+                        <div class="asideForm__tabs-item">
+                            <div class="linha">
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="Cliente_Id">Cliente:</label>
+                                    <select name="Cliente_Id" id="Cliente_Id" class="inputForm">
+                                        <option value="">Selecione</option>
+                                        <option value="ClienteW">Cliente W</option>
+                                        <option value="ClienteX">Cliente X</option>
+                                        <option value="ClienteY">Cliente Y</option>
+                                        <option value="ClienteZ">Cliente Z</option>
+                                    </select>
+                                </div>
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="Unidade_Id">Unidade:</label>
+                                    <select name="Unidade_Id" id="Unidade_Id" class="inputForm">
+                                        <option value="">Selecione</option>
+                                        <option value="UnidadeW">Unidade W</option>
+                                        <option value="UnidadeX">Unidade X</option>
+                                        <option value="UnidadeY">Unidade Y</option>
+                                        <option value="UnidadeZ">Unidade Z</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="linha">
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="NumeroImobilizado">Nº de Imobilizado:</label>
+                                    <input type="text" name="NumeroImobilizado" id="NumeroImobilizado" class="inputForm" required>
+                                </div>
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="Area">Área:</label>
+                                    <input type="text" name="Area" id="Area" class="inputForm" required>
+                                </div>
+                            </div>
+                            <div class="linha">
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="PlacaAntiga">Placa antiga:</label>
+                                    <input type="text" name="PlacaAntiga" id="PlacaAntiga" class="inputForm" required>
+                                </div>
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="PlacaNova">Placa Nova:</label>
+                                    <input type="text" name="PlacaNova" id="PlacaNova" class="inputForm" required>
+                                </div>
+                            </div>
+                            <div linha style="display: flex; align-items: flex-start; position: relative">
+                                <div class="">
+                                    <div class="linha">
+                                        <div class="input-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="text-error"></p>
+                                            <label for="CentroCusto">Centro de Custo:</label>
+                                            <input type="text" name="CentroCusto" id="CentroCusto" class="inputForm" required>
+                                        </div>
+                                    </div>
+                                    <div class="linha">
+                                        <div class="input-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="text-error"></p>
+                                            <label for="DescricaoCentroCusto">Descrição:</label>
+                                            <textarea name="DescricaoCentroCusto" id="DescricaoCentroCusto" class="inputForm" placeholder="Descrição do centro de custo..."></textarea>
+                                            <hr>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <hr class="vertical"> -->
+                                <div class="">
+                                    <div class="linha">
+                                        <div class="input-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="text-error"></p>
+                                            <label for="ContaContabil">Conta Contábil:</label>
+                                            <input type="text" name="ContaContabil" id="ContaContabil" class="inputForm" required>
+                                        </div>
+                                    </div>
+                                    <div class="linha">
+                                        <div class="input-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                            <p class="text-error"></p>
+                                            <label for="DescicaoContaContabil">Descrição:</label>
+                                            <textarea name="DescicaoContaContabil" id="DescicaoContaContabil" class="inputForm" placeholder="Descrição da conta..."></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="linha">
+                                <div class="input-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="DescricaoFinal">Descrição Final:</label>
+                                    <textarea type="text" name="DescricaoFinal" id="DescricaoFinal" class="inputForm" required></textarea>
+                                </div>
+                            </div>
+                            <div class="linha">
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="DataAquisicao">Data de Aquisição:</label>
+                                    <input type="date" name="DataAquisicao" id="DataAquisicao" class="inputForm" required>
+                                </div>
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="ValorAquisicao">Valor Aquisição:</label>
+                                    <input type="text" name="ValorAquisicao" id="ValorAquisicao" class="inputForm" required>
+                                </div>
+                            </div>
+                            <div class="linha">
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="Depreciacao">Depreciação:</label>
+                                    <input type="text" name="Depreciacao" id="Depreciacao" class="inputForm" required>
+                                </div>
+                                <div class="input-container col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
+                                    <p class="text-error"></p>
+                                    <label for="Residual">Residual:</label>
+                                    <input type="text" name="Residual" id="Residual" class="inputForm" required>
+                                </div>
+                            </div>
+                            <div class="linha col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 imagens">
+                                <button type="button" class="btn-addLinha rounded-circle" onclick="createLinhaImagem(this)">
+                                    <span class="addLinha-icon">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                    <span>Nova imagem</span>
+                                </button>
+                                <hr class="col-xl-8 col-lg-8 col-md-8 col-sm-6 col-6">
+                            </div>
+                            <div class="camposImagem">
+                                <div class="linha">
+                                    <div class="input-container col-xl-11 col-lg-11 col-md-11 col-sm-11 col-11">
+                                        <p class="text-error"></p>
+                                        <div class="inputFile">
+                                            <div class="inputFile__image">
+                                                <button type="button" class="btn btn-closeImagem" onclick="closeImagem(this)">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                                <img src="https://s2.glbimg.com/of-wm12tGeAcF_chWnw-0wlWP6E=/0x0:695x522/695x522/s.glbimg.com/po/tt/f/original/2014/02/13/inspiron-3000-e-nova-linha-de-desktop-compacto-com-processador-haswell.jpg" class="inputFile__image-img">
+                                                <p onclick="ampliarImagem(this)">
+                                                    <span style="margin-right: 5px;"><i
+                                                            class="fas fa-search-plus"></i></span> Ampliar
+
+                                                </p>
+                                            </div>
+                                            <label for="image-1" class="inputFile__label">
+                                                <span class="nomeArquivo">Computador Dell</span>
+                                            </label>
+                                            <input type="file" name="image-1" id="image-1" class="inputForm inputFile__label-input  " onchange="readURL(this)">
+                                        </div>
+
+                                    </div>
+                                    <div class="input-container">
+                                        <button type="button" class="btn btn-excluirLinha" onclick="deleteLinhaContato(this)" title="Remover linha">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="linha">
+                            <div class="btnSubmit-container col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <button type="submit" class="btn btn-submit">
+                                    Salvar
+                                    <span style="margin-left: 5px;"></span>
+                                    <span class="borderSnake"></span>
+                                    <span class="borderSnake"></span>
+                                    <span class="borderSnake"></span>
+                                    <span class="borderSnake"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="openAsideForm-content">
+                <button type="button" class="btn btn-openAsideForm" onclick="novaUnidade(this)">
+                    Novo registro
+                    <span style="margin-left: 5px;"><i class="fas fa-plus"></i></span>
+                </button>
+            </div>
+        </aside>
+        <div class="main-content">
+            <div class="list__bg"></div>
+            <section class="list">
+                <div class="list__inner">
+                    <div class="wrapper">
+                        <header class="list__header">
+                            <h2 style="max-width: 340px;">
+                                Imobilizado
+                            </h2>
+                            <div class="showHiddenColumns-content">
+                                <input type="checkbox" name="" id="toggleHiddenColumns" class="toggleHiddenColumns" onchange="toggleColumns()">
+                                <label for="toggleHiddenColumns">
+                                    <p>Mostrar atributos específicos</p>
+                                </label>
+                            </div>
+                        </header>
+                        <div class="table-content">
+                            <table class="table table-responsible">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th column="1">
+                                            <span class="table__thead-text">Nº Imobilizado</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="2">
+                                            <span class="table__thead-text">Unidade</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="3">
+                                            <span class="table__thead-text">Placa Nova</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="4">
+                                            <span class="table__thead-text">Placa Antiga</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="5">
+                                            <span class="table__thead-text">Centro de Custo</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="6">
+                                            <span class="table__thead-text">Descrição</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="7">
+                                            <span class="table__thead-text">Conta Contábil</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="8">
+                                            <span class="table__thead-text">Descrição</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="9">
+                                            <span class="table__thead-text">Descrição Final</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="10">
+                                            <span class="table__thead-text">Data de Aquisição</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="11">
+                                            <span class="table__thead-text">Valor de Aquisição</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="12">
+                                            <span class="table__thead-text">Depreciação</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="13">
+                                            <span class="table__thead-text">Residual</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="14">
+                                            <span class="table__thead-text">Área</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="15" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">Sub-Área</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="16" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">Descrição</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="17" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">FAB</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="18" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">MOD</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="19" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">Nº Série</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="20" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">CAP.</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="21" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">POS</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="22" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">DIM</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="23" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">PRAT</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="24" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">GAV</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="25" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">ESTR</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="26" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">TAMPO</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="27" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">BRACO</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="28" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">ASS.</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="29" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">ROD</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="30" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">Giratória</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th column="31" class="column-hidden" style="display: none;">
+                                            <span class="table__thead-text">Observação</span>
+                                            <button class="btn table__thead-btn" onclick="ordenarPorColuna(this)">
+                                                <i class="far fa-caret-square-down"></i>
+                                            </button>
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                    <tr class="subheader" style="display: none;">
+                                        <th></th>
+                                        <th class="qtd-linhas">5 Linhas selecionadas</th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th></th>
+                                        <th style="text-align: center;position: sticky;right: 0;">
+                                            <button class="btn btn-delete" type="button" title="Excluir todos" onclick="excluirLinha(this)">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="checkboxList">
+                                                <input type="checkbox" name="" id="checkboxList-1" class="checkboxList-input" onchange="selectLinha(this, 1)" required>
+                                                <label for="checkboxList-1" class="checkboxList-check">
+                                                    <span class="checkboxList-checkIcon">
+                                                        <span></span>
+                                                        <span></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td column="1">ID-02847</td>
+                                        <td column="2">Unidade W</td>
+                                        <td column="3">40529</td>
+                                        <td column="4">-</td>
+                                        <td column="5">MW08070047</td>
+                                        <td column="6" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="7">0000</td>
+                                        <td column="8" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="9" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="10">
+                                            15/05/2017
+                                        </td>
+                                        <td column="11">
+                                            1000
+                                        </td>
+                                        <td column="12">
+                                            15%
+                                        </td>
+                                        <td column="13">
+                                            -
+                                        </td>
+                                        <td column="14">
+                                            E1 | 1º ANDAR | DIRETORIA DME
+                                        </td>
+                                        <td column="15" class="column-hidden" style="display: none;">
+                                            Engenharia de Dados
+                                        </td>
+                                        <td column="16" class="column-hidden" style="display: none;">
+                                            Mesa em L
+                                        </td>
+                                        <td column="17" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="18" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="19" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="20" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="21" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="22" class="column-hidden" style="display: none;">
+                                            70x160x160
+                                        </td>
+                                        <td column="23" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="24" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="25" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="26" class="column-hidden" style="display: none;">
+                                            Madeira
+                                        </td>
+                                        <td column="27" class="column-hidden" style="display: none;">
+                                            Madeira
+                                        </td>
+                                        <td column="28" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="29" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="30" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="31" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td style="position: sticky;right: 0; ">
+                                            <div class="editLinha">
+                                                <button class="btn btn-edit" onclick="editLinha(this)">
+                                                    <span style="margin-right: 5px;">Editar</span>
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkboxList">
+                                                <input type="checkbox" name="" id="checkboxList-2" class="checkboxList-input" onchange="selectLinha(this, 1)" required>
+                                                <label for="checkboxList-2" class="checkboxList-check">
+                                                    <span class="checkboxList-checkIcon">
+                                                        <span></span>
+                                                        <span></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td column="1">ID-02847</td>
+                                        <td column="2">Unidade X</td>
+                                        <td column="3">40529</td>
+                                        <td column="4">-</td>
+                                        <td column="5">MW08070047</td>
+                                        <td column="6" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="7">0000</td>
+                                        <td column="8" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="9" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="10">
+                                            15/05/2017
+                                        </td>
+                                        <td column="11">
+                                            1000
+                                        </td>
+                                        <td column="12">
+                                            15%
+                                        </td>
+                                        <td column="13">
+                                            -
+                                        </td>
+                                        <td column="14">
+                                            E1 | 1º ANDAR | DIRETORIA DME
+                                        </td>
+                                        <td column="15" class="column-hidden" style="display: none;">
+                                            Engenharia de Dados
+                                        </td>
+                                        <td column="16" class="column-hidden" style="display: none;">
+                                            Mesa em L
+                                        </td>
+                                        <td column="17" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="18" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="19" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="20" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="21" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="22" class="column-hidden" style="display: none;">
+                                            70x160x160
+                                        </td>
+                                        <td column="23" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="24" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="25" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="26" class="column-hidden" style="display: none;">
+                                            Madeira
+                                        </td>
+                                        <td column="27" class="column-hidden" style="display: none;">
+                                            Madeira
+                                        </td>
+                                        <td column="28" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="29" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="30" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="31" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td style="position: sticky;right: 0; ">
+                                            <div class="editLinha">
+                                                <button class="btn btn-edit" onclick="editLinha(this)">
+                                                    <span style="margin-right: 5px;">Editar</span>
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="checkboxList">
+                                                <input type="checkbox" name="" id="checkboxList-3" class="checkboxList-input" onchange="selectLinha(this, 1)" required>
+                                                <label for="checkboxList-3" class="checkboxList-check">
+                                                    <span class="checkboxList-checkIcon">
+                                                        <span></span>
+                                                        <span></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td column="1">ID-02847</td>
+                                        <td column="2">Unidade Y</td>
+                                        <td column="3">40529</td>
+                                        <td column="4">-</td>
+                                        <td column="5">MW08070047</td>
+                                        <td column="6" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="7">0000</td>
+                                        <td column="8" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="9" title="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut at et perspiciatis placeat quaerat quidem aliquam deleniti, est, asperiores ducimus molestias consectetur quae explicabo tempore repellat amet, repellendus excepturi. Maiores!">
+                                            Lorem ipsum dolor sit amet...
+                                        </td>
+                                        <td column="10">
+                                            15/05/2017
+                                        </td>
+                                        <td column="11">
+                                            1000
+                                        </td>
+                                        <td column="12">
+                                            15%
+                                        </td>
+                                        <td column="13">
+                                            -
+                                        </td>
+                                        <td column="14">
+                                            E1 | 1º ANDAR | DIRETORIA DME
+                                        </td>
+                                        <td column="15" class="column-hidden" style="display: none;">
+                                            Engenharia de Dados
+                                        </td>
+                                        <td column="16" class="column-hidden" style="display: none;">
+                                            Mesa em L
+                                        </td>
+                                        <td column="17" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="18" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="19" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="20" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="21" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="22" class="column-hidden" style="display: none;">
+                                            70x160x160
+                                        </td>
+                                        <td column="23" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="24" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="25" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="26" class="column-hidden" style="display: none;">
+                                            Madeira
+                                        </td>
+                                        <td column="27" class="column-hidden" style="display: none;">
+                                            Madeira
+                                        </td>
+                                        <td column="28" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="29" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="30" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td column="31" class="column-hidden" style="display: none;">
+                                            -
+                                        </td>
+                                        <td style="position: sticky;right: 0; ">
+                                            <div class="editLinha">
+                                                <button class="btn btn-edit" onclick="editLinha(this)">
+                                                    <span style="margin-right: 5px;">Editar</span>
+                                                    <i class="far fa-edit"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="footer__bg" style="background-image: url(./../assets/img/bg-footer-blue.png);"></div>
+        <div class="wrapper">
+            <div class="footer__inner">
+                <img src="./../assets/img/logo.png" alt="Logo Supera" class="footer__logo">
+                <p>
+                    <strong>LIDERATU CONSULTORIA</strong>
+                    <span>Todos os direitos reservados.</span>
+                    <!-- <a href="https://metodosupera.com.br/politica-de-privacidade-supera/" class="link" title="Política de Privacidade">Política de Privacidade</a> -->
+                    <span> Imagens Meramente Ilustrativas</span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
